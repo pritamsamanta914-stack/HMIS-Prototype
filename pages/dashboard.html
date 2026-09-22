@@ -1,1 +1,209 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>HMIS</title><link rel="stylesheet" href="../style.css"><script src="../script.js"></script></head><body><header></header><main><script>guard()</script><div class="card"><h1 id="w"></h1><p class="m">What would you like to do?</p></div><div class="grid"><a class="card" href="appointment.html"><h2>Book appointment</h2></a><a class="card" href="case-summary.html"><h2>Case summary</h2></a><a class="card" href="prescription.html"><h2>Prescription</h2></a><a class="card" href="billing.html"><h2>Billing</h2></a></div><div class="card" style="margin-top:16px"><h2>Your appointments</h2><table id="t"></table></div><script>w.textContent="Welcome, "+user().name;api("/appointments").then(a=>{t.innerHTML=a.length?a.map(x=>`<tr><td>${x.date}</td><td>${x.dept}</td><td>${x.paid?"Paid":"Payment due"}</td></tr>`).join(""):"<tr><td>No appointments yet.</td></tr>"})</script></main></body></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>HMIS - Dashboard</title>
+
+    <link rel="stylesheet" href="../style.css">
+
+    <script src="../script.js" defer></script>
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        🏥 HMIS
+    </div>
+
+
+    <nav>
+
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+        <a href="appointment.html">
+            Appointment
+        </a>
+
+        <a href="case-summary.html">
+            Case Summary
+        </a>
+
+        <a href="prescription.html">
+            Prescription
+        </a>
+
+        <a href="billing.html">
+            Billing
+        </a>
+
+        <a href="../index.html">
+            Logout
+        </a>
+
+    </nav>
+
+</header>
+
+
+<main>
+
+    <!-- WELCOME -->
+
+    <div class="card">
+
+        <h1 id="welcome">
+            Welcome
+        </h1>
+
+        <p>
+            Welcome to your Hospital Management Information System.
+        </p>
+
+    </div>
+
+
+    <!-- QUICK ACTIONS -->
+
+    <div class="card">
+
+        <h2>
+            Quick Actions
+        </h2>
+
+
+        <div class="grid">
+
+            <a
+                class="button"
+                href="appointment.html">
+
+                📅
+                <br>
+
+                Book Appointment
+
+            </a>
+
+
+            <a
+                class="button"
+                href="case-summary.html">
+
+                📋
+                <br>
+
+                Case Summary
+
+            </a>
+
+
+            <a
+                class="button"
+                href="prescription.html">
+
+                💊
+                <br>
+
+                Prescription
+
+            </a>
+
+
+            <a
+                class="button"
+                href="billing.html">
+
+                💳
+                <br>
+
+                Billing
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- APPOINTMENTS -->
+
+    <div class="card">
+
+        <h2>
+            Your Appointments
+        </h2>
+
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        Appointment ID
+                    </th>
+
+                    <th>
+                        Date
+                    </th>
+
+                    <th>
+                        Department
+                    </th>
+
+                    <th>
+                        Time
+                    </th>
+
+                    <th>
+                        Payment
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody id="appointmentTable">
+
+                <tr>
+
+                    <td colspan="5">
+                        No appointments yet.
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</main>
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    loadDashboard();
+
+});
+
+</script>
+
+</body>
+</html>

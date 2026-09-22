@@ -1,1 +1,118 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>HMIS</title><link rel="stylesheet" href="../style.css"><script src="../script.js"></script></head><body><header></header><main><div class="card"><h1>Patient login</h1><form onsubmit="login(event)"><label>Phone</label><input name="phone" required><label>Password</label><input name="password" type="password" required><p class="err" id="err"></p><button>Log in</button></form><p class="m"><a href="patient-registration.html">Create an account</a></p></div></main></body></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>HMIS - Patient Login</title>
+
+    <link rel="stylesheet" href="../style.css">
+
+    <script src="../script.js" defer></script>
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        🏥 HMIS
+    </div>
+
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="patient-registration.html">Register</a>
+    </nav>
+
+</header>
+
+
+<main>
+
+    <div class="card login-card">
+
+        <h1>Patient Login</h1>
+
+        <p>
+            Login to access your HMIS dashboard.
+        </p>
+
+
+        <form id="loginForm">
+
+            <label for="phone">
+                Phone Number
+            </label>
+
+            <input
+                id="phone"
+                name="phone"
+                type="tel"
+                pattern="[0-9]{10}"
+                maxlength="10"
+                placeholder="Enter 10 digit phone number"
+                required
+            >
+
+
+            <label for="password">
+                Password
+            </label>
+
+            <input
+                id="password"
+                name="password"
+                type="password"
+                placeholder="Enter password"
+                required
+            >
+
+
+            <p
+                class="err"
+                id="loginError">
+            </p>
+
+
+            <button type="submit">
+                Login
+            </button>
+
+        </form>
+
+
+        <p class="m">
+
+            New patient?
+
+            <a href="patient-registration.html">
+                Create an account
+            </a>
+
+        </p>
+
+    </div>
+
+</main>
+
+
+<script>
+
+document
+    .getElementById("loginForm")
+    .addEventListener("submit", function(event) {
+
+        login(event);
+
+    });
+
+</script>
+
+</body>
+
+</html>

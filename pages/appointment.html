@@ -1,1 +1,135 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>HMIS</title><link rel="stylesheet" href="../style.css"><script src="../script.js"></script></head><body><header></header><main><script>guard()</script><div class="card"><h1>Book appointment</h1><form onsubmit="book(event)"><label>Department</label><select name="dept"><option>General</option><option>Cardiology</option><option>Orthopedics</option><option>Pediatrics</option></select><label>Date</label><input name="date" type="date" required><label>Time</label><select name="time"><option>10:00</option><option>11:00</option><option>14:00</option><option>16:00</option></select><button>Book appointment</button></form></div></main></body></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HMIS - Appointment</title>
+
+    <link rel="stylesheet" href="../style.css">
+    <script src="../script.js" defer></script>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">🏥 HMIS</div>
+
+    <nav>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="appointment.html">Appointment</a>
+        <a href="case-summary.html">Case Summary</a>
+        <a href="prescription.html">Prescription</a>
+        <a href="billing.html">Billing</a>
+    </nav>
+</header>
+
+<main>
+
+    <div class="card">
+
+        <h1>Book Appointment</h1>
+
+        <p>
+            Select a department, date and time for your appointment.
+        </p>
+
+        <form id="appointmentForm">
+
+            <label for="dept">
+                Department
+            </label>
+
+            <select id="dept" name="dept" required>
+
+                <option value="">
+                    Select Department
+                </option>
+
+                <option value="General">
+                    General
+                </option>
+
+                <option value="Cardiology">
+                    Cardiology
+                </option>
+
+                <option value="Orthopedics">
+                    Orthopedics
+                </option>
+
+                <option value="Pediatrics">
+                    Pediatrics
+                </option>
+
+            </select>
+
+
+            <label for="date">
+                Date
+            </label>
+
+            <input
+                id="date"
+                name="date"
+                type="date"
+                required
+            >
+
+
+            <label for="time">
+                Time
+            </label>
+
+            <select id="time" name="time" required>
+
+                <option value="">
+                    Select Time
+                </option>
+
+                <option value="10:00 AM">
+                    10:00 AM
+                </option>
+
+                <option value="11:00 AM">
+                    11:00 AM
+                </option>
+
+                <option value="2:00 PM">
+                    2:00 PM
+                </option>
+
+                <option value="4:00 PM">
+                    4:00 PM
+                </option>
+
+            </select>
+
+
+            <button type="submit">
+                Book Appointment
+            </button>
+
+        </form>
+
+    </div>
+
+</main>
+
+<script>
+
+document
+    .getElementById("appointmentForm")
+    .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        book(event);
+
+    });
+
+</script>
+
+</body>
+</html>

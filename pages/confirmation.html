@@ -1,1 +1,95 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>HMIS</title><link rel="stylesheet" href="../style.css"><script src="../script.js"></script></head><body><header></header><main><script>guard()</script><div class="card"><h1 class="ok">Booking confirmed</h1><p id="c"></p><a class="btn" href="dashboard.html">Back to dashboard</a></div><script>lastAppt().then(x=>{c.textContent=x?`Appointment ${x.id}: ${x.dept} on ${x.date} at ${x.time}. Payment received.`:"No appointment found."})</script></main></body></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>HMIS - Confirmation</title>
+
+    <link rel="stylesheet" href="../style.css">
+
+    <script src="../script.js" defer></script>
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        🏥 HMIS
+    </div>
+
+    <nav>
+
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+        <a href="appointment.html">
+            Appointment
+        </a>
+
+        <a href="case-summary.html">
+            Case Summary
+        </a>
+
+        <a href="prescription.html">
+            Prescription
+        </a>
+
+        <a href="billing.html">
+            Billing
+        </a>
+
+    </nav>
+
+</header>
+
+
+<main>
+
+    <div class="card confirmation">
+
+        <div class="success-icon">
+            ✅
+        </div>
+
+        <h1>
+            Booking Confirmed
+        </h1>
+
+        <p id="confirmationText">
+            Loading appointment details...
+        </p>
+
+
+        <a
+            class="button"
+            href="dashboard.html">
+
+            Back to Dashboard
+
+        </a>
+
+    </div>
+
+</main>
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    showConfirmation();
+
+});
+
+</script>
+
+</body>
+</html>

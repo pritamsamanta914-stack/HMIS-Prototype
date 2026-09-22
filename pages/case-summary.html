@@ -1,1 +1,132 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>HMIS</title><link rel="stylesheet" href="../style.css"><script src="../script.js"></script></head><body><header></header><main><script>guard()</script><div class="card"><h1>Case summary</h1><p class="m">Describe your condition for the doctor.</p><form onsubmit="saveCase(event)"><label>Symptoms</label><textarea name="symptoms" rows="3" required></textarea><label>Medical history</label><textarea name="history" rows="3"></textarea><button>Save and continue</button></form></div></main></body></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>HMIS - Case Summary</title>
+
+    <link rel="stylesheet" href="../style.css">
+
+    <script src="../script.js" defer></script>
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        🏥 HMIS
+    </div>
+
+    <nav>
+
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+        <a href="appointment.html">
+            Appointment
+        </a>
+
+        <a href="case-summary.html">
+            Case Summary
+        </a>
+
+        <a href="prescription.html">
+            Prescription
+        </a>
+
+        <a href="billing.html">
+            Billing
+        </a>
+
+    </nav>
+
+</header>
+
+
+<main>
+
+    <div class="card">
+
+        <h1>
+            Patient Case Summary
+        </h1>
+
+        <p>
+            Enter your medical information for the doctor.
+        </p>
+
+
+        <form id="caseForm">
+
+            <label for="symptoms">
+                Symptoms
+            </label>
+
+            <textarea
+                id="symptoms"
+                name="symptoms"
+                rows="5"
+                placeholder="Describe your symptoms..."
+                required>
+            </textarea>
+
+
+            <label for="history">
+                Medical History
+            </label>
+
+            <textarea
+                id="history"
+                name="history"
+                rows="5"
+                placeholder="Enter previous medical history...">
+            </textarea>
+
+
+            <label for="allergies">
+                Allergies
+            </label>
+
+            <textarea
+                id="allergies"
+                name="allergies"
+                rows="3"
+                placeholder="Mention any known allergies...">
+            </textarea>
+
+
+            <button type="submit">
+                Save Case Summary
+            </button>
+
+        </form>
+
+    </div>
+
+</main>
+
+
+<script>
+
+document
+    .getElementById("caseForm")
+    .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        saveCase(event);
+
+    });
+
+</script>
+
+</body>
+</html>

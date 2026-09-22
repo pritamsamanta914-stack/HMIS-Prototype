@@ -1,1 +1,188 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>HMIS</title><link rel="stylesheet" href="../style.css"><script src="../script.js"></script></head><body><header></header><main><script>guard()</script><div class="card"><h1>Prescription</h1><p class="m">Sample prescription based on your appointment.</p><table><tr><th>Medicine</th><th>Dose</th><th>Days</th></tr><tr><td>Paracetamol 500 mg</td><td>Twice daily</td><td>5</td></tr><tr><td>Vitamin D3</td><td>Once daily</td><td>30</td></tr></table><a class="btn" href="billing.html">Go to billing</a></div></main></body></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>HMIS - Prescription</title>
+
+    <link rel="stylesheet" href="../style.css">
+
+    <script src="../script.js" defer></script>
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        🏥 HMIS
+    </div>
+
+
+    <nav>
+
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+        <a href="appointment.html">
+            Appointment
+        </a>
+
+        <a href="case-summary.html">
+            Case Summary
+        </a>
+
+        <a href="prescription.html">
+            Prescription
+        </a>
+
+        <a href="billing.html">
+            Billing
+        </a>
+
+    </nav>
+
+</header>
+
+
+<main>
+
+    <div class="card">
+
+        <h1>
+            Medical Prescription
+        </h1>
+
+        <p>
+            Prescription provided by the doctor.
+        </p>
+
+
+        <div class="patient-info">
+
+            <p>
+                <strong>Patient:</strong>
+                <span id="patientName">
+                    Patient
+                </span>
+            </p>
+
+        </div>
+
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        Medicine
+                    </th>
+
+                    <th>
+                        Dose
+                    </th>
+
+                    <th>
+                        Duration
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+                <tr>
+
+                    <td>
+                        Paracetamol 500 mg
+                    </td>
+
+                    <td>
+                        Twice daily
+                    </td>
+
+                    <td>
+                        5 days
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>
+                        Vitamin D3
+                    </td>
+
+                    <td>
+                        Once daily
+                    </td>
+
+                    <td>
+                        30 days
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+
+        <br>
+
+
+        <a
+            class="button"
+            href="billing.html">
+
+            Go to Billing
+
+        </a>
+
+    </div>
+
+</main>
+
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        guard();
+
+        const currentUser = user();
+
+        const name =
+            document.getElementById(
+                "patientName"
+            );
+
+        if (name && currentUser) {
+
+            name.textContent =
+                currentUser.name;
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+
+</html>

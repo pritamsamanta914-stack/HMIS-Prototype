@@ -1,1 +1,131 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>HMIS</title><link rel="stylesheet" href="../style.css"><script src="../script.js"></script></head><body><header></header><main><script>guard()</script><div class="card"><h1>Billing</h1><table id="b"></table><button onclick="pay()">Pay now</button></div><script>lastAppt().then(x=>{x=x||{fee:0,dept:"-"};b.innerHTML=`<tr><td>Consultation (${x.dept})</td><td>₹${x.fee}</td></tr><tr><td>Total</td><td><b>₹${x.fee}</b></td></tr>`})</script></main></body></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>HMIS - Billing</title>
+
+    <link rel="stylesheet" href="../style.css">
+
+    <script src="../script.js" defer></script>
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        🏥 HMIS
+    </div>
+
+    <nav>
+
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+        <a href="appointment.html">
+            Appointment
+        </a>
+
+        <a href="case-summary.html">
+            Case Summary
+        </a>
+
+        <a href="prescription.html">
+            Prescription
+        </a>
+
+        <a href="billing.html">
+            Billing
+        </a>
+
+    </nav>
+
+</header>
+
+
+<main>
+
+    <div class="card">
+
+        <h1>Final Bill</h1>
+
+        <p>
+            Review your consultation charges.
+        </p>
+
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        Description
+                    </th>
+
+                    <th>
+                        Amount
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody id="billTable">
+
+                <tr>
+
+                    <td>
+                        Loading...
+                    </td>
+
+                    <td>
+                        -
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+
+        <button
+            type="button"
+            id="payButton">
+
+            Pay Now
+
+        </button>
+
+    </div>
+
+</main>
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    loadBill();
+
+    document
+        .getElementById("payButton")
+        .addEventListener("click", pay);
+
+});
+
+</script>
+
+</body>
+</html>
